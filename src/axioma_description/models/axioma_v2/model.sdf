@@ -402,7 +402,13 @@
               <!--namespace>/axioma</namespace-->
                 <remapping>~/out:=scan</remapping>
             </ros>
-
+            <qos>
+              <topic name="scan">
+                <publisher>
+                  <reliability>best_effort</reliability>
+                </publisher>
+              </topic>
+            </qos>
             <output_type>sensor_msgs/LaserScan</output_type>
             <frame_name>base_scan</frame_name>
           </plugin>
@@ -485,7 +491,7 @@
     <plugin name='skid_steer_drive' filename='libgazebo_ros_diff_drive.so'>
 
         <!-- Update rate -->
-        <update_rate>20</update_rate>
+        <update_rate>50</update_rate>
         <!-- Number of wheel pairs -->
         <num_wheel_pairs>2</num_wheel_pairs>
         <!-- wheels0 -->
@@ -505,6 +511,7 @@
         <!-- output -->
         <publish_odom>true</publish_odom>
         <publish_odom_tf>true</publish_odom_tf>
+        <publish_wheel_tf>false</publish_wheel_tf>
         <odometry_frame>odom</odometry_frame>
         <robot_base_frame>base_link</robot_base_frame>
       </plugin>

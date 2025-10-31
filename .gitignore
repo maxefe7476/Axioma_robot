@@ -1,0 +1,46 @@
+# Archivos y carpetas de compilación de colcon
+build/
+install/
+log/
+.claude/
+# Archivos de CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos temporales de editores
+*.swp
+*.swo
+*.bak
+*~
+.vscode/
+.idea/
+
+# Archivos de dependencias locales
+.env
+.venv/
+venv/
+pip-wheel-metadata/
+
+# Archivos generados por tests
+*.xml
+*.test
+coverage/
+
+# Archivos de ROS 2
+*.launch.pyc
+*.launch.pyo
+
+# Archivos de logs y temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos generados por herramientas externas
+colcon.meta
+*.log
