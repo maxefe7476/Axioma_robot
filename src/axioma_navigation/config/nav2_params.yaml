@@ -6,11 +6,12 @@ map_server:
 amcl:
   ros__parameters:
     use_sim_time: True
-    alpha1: 0.2
-    alpha2: 0.2
-    alpha3: 0.2
-    alpha4: 0.2
-    alpha5: 0.2
+    # Parámetros del modelo de movimiento (más bajos = confía más en odometría)
+    alpha1: 0.05  # Rotación por rotación (reducido de 0.2)
+    alpha2: 0.05  # Rotación por traslación (reducido de 0.2)
+    alpha3: 0.05  # Traslación por traslación (reducido de 0.2)
+    alpha4: 0.05  # Traslación por rotación (reducido de 0.2)
+    alpha5: 0.05  # Ruido adicional (reducido de 0.2)
     base_frame_id: "base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
@@ -22,27 +23,31 @@ amcl:
     laser_max_range: 10.0
     laser_min_range: 0.12
     laser_model_type: "likelihood_field"
-    max_beams: 60
-    max_particles: 2000
-    min_particles: 500
+    max_beams: 120  # Aumentado de 60 para mejor precisión
+    max_particles: 5000  # Aumentado de 2000 para mejor tracking
+    min_particles: 1000  # Aumentado de 500
     odom_frame_id: "odom"
-    pf_err: 0.05
+    pf_err: 0.01  # Reducido de 0.05 para mantener más partículas
     pf_z: 0.99
-    recovery_alpha_fast: 0.0
-    recovery_alpha_slow: 0.0
+    recovery_alpha_fast: 0.1  # Activado para recovery (era 0.0)
+    recovery_alpha_slow: 0.001  # Activado para recovery (era 0.0)
     resample_interval: 1
     robot_model_type: "nav2_amcl::DifferentialMotionModel"
     save_pose_rate: 0.5
     sigma_hit: 0.2
     tf_broadcast: true
     transform_tolerance: 1.0
-    update_min_a: 0.2
-    update_min_d: 0.25
+    update_min_a: 0.1  # Reducido de 0.2 - actualiza más frecuentemente
+    update_min_d: 0.1  # Reducido de 0.25 - actualiza más frecuentemente
     z_hit: 0.5
     z_max: 0.05
     z_rand: 0.5
     z_short: 0.05
     scan_topic: scan
+    # Parámetros adicionales para mejor localización
+    set_initial_pose: false
+    always_reset_initial_pose: false
+    first_map_only: false
 
 bt_navigator:
   ros__parameters:
