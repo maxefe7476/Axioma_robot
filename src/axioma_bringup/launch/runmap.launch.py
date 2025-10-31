@@ -2,9 +2,9 @@
 import os
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
-from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 
 
@@ -17,14 +17,9 @@ def generate_launch_description():
     # === Archivos ===
     world = os.path.join(pkg_axioma_description, 'worlds', 'empty.world')
     sdf_model = os.path.join(pkg_axioma_description, 'models', 'axioma_v2', 'model.sdf')
-    urdf_file = os.path.join(pkg_axioma_description, 'urdf', 'axioma.urdf')
-    map_file = os.path.join(pkg_axioma_navigation, 'maps', 'mapa.yaml')
+    slam_params = os.path.join(pkg_axioma_navigation, 'config', 'slam_params.yaml')
     rviz_config = os.path.join(pkg_axioma_description, 'rviz', 'slam-toolbox.yaml.rviz')
-
-    # === Verificación de existencia ===
-    for f in [world, sdf_model, urdf_file, map_file, rviz_config]:
-        if not os.path.exists(f):
-            print(f"[WARNING] Archivo no encontrado: {f}")
+    urdf_file = os.path.join(pkg_axioma_description, 'urdf', 'axioma.urdf')
 
     # === Argumentos ===
     use_sim_time = LaunchConfiguration('use_sim_time')
@@ -39,7 +34,6 @@ def generate_launch_description():
         ),
         launch_arguments={'world': world}.items(),
     )
-
     gzclient = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')
@@ -50,7 +44,11 @@ def generate_launch_description():
     spawn_robot = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-entity', 'axioma', '-file', sdf_model, '-x', '0.0', '-y', '0.0', '-z', '0.1'],
+        arguments=[
+            '-entity', 'axioma',
+            '-file', sdf_model,
+            '-x', '0.0', '-y', '0.0', '-z', '0.1'
+        ],
         output='screen'
     )
 
@@ -66,26 +64,59 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}]
     )
 
-    # === RViz2 ===
-    rviz_node = Node(
+    # === SLAM Toolbox ===
+    slam_toolbox = Node(
+        package='slam_toolbox',
+        executable='async_slam_toolbox_node',
+        name='slam_toolbox',
+        output='screen',
+        parameters=[slam_params, {'use_sim_time': use_sim_time}]
+    )
+
+    # === RViz ===
+    rviz = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
         output='screen',
         arguments=['-d', rviz_config],
-        parameters=[
-            {'use_sim_time': True},
-            {'map': map_file}
-        ]
+        parameters=[{'use_sim_time': use_sim_time}]
     )
 
-    # === Lanzamiento final ===
+    # === Nodo del joystick (control Xbox) ===
+    joy_node = Node(
+        package='joy',
+        executable='joy_node',
+        name='joy_node',
+        output='screen',
+        parameters=[{'dev': '/dev/input/js0'}]
+    )
+
+    # === Teleop Twist Joy (traduce joystick → cmd_vel) ===
+    teleop_joy = Node(
+        package='teleop_twist_joy',
+        executable='teleop_node',
+        name='teleop_twist_joy',
+        output='screen',
+        parameters=[{
+            'use_sim_time': use_sim_time,
+            'axis_linear.x': 1,          # eje izquierdo vertical
+            'axis_angular.yaw': 0,       # eje derecho horizontal
+            'scale_linear.x': 0.5,       # velocidad lineal máxima
+            'scale_angular.yaw': 2.0     # velocidad angular máxima
+        }]
+    )
+
+    # === Launch final ===
     return LaunchDescription([
         declare_use_sim_time,
         gzserver,
         gzclient,
         spawn_robot,
         robot_state_publisher,
-        rviz_node
+        slam_toolbox,
+        rviz,
+        joy_node,
+        teleop_joy,
     ])
 
