@@ -2,11 +2,10 @@
 <sdf version="1.6">
   <model name="simple_test_robot">
 
-    <!-- Base link - simple box -->
+    <!-- Base link - using axioma chassis mesh -->
     <link name="base_link">
-      <pose>0 0 0.1 0 0 0</pose>
       <inertial>
-        <mass>5.0</mass>
+        <mass>2.0</mass>
         <inertia>
           <ixx>0.1</ixx>
           <ixy>0</ixy>
@@ -19,17 +18,19 @@
 
       <collision name="collision">
         <geometry>
-          <box>
-            <size>0.3 0.3 0.1</size>
-          </box>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/collision/chasis.dae</uri>
+          </mesh>
         </geometry>
       </collision>
 
       <visual name="visual">
         <geometry>
-          <box>
-            <size>0.3 0.3 0.1</size>
-          </box>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/visual/chasis.stl</uri>
+          </mesh>
         </geometry>
         <material>
           <ambient>0.0 0.0 1.0 1</ambient>
@@ -38,9 +39,9 @@
       </visual>
     </link>
 
-    <!-- Left wheel -->
-    <link name="left_wheel">
-      <pose>0 0.2 0.05 -1.5707 0 0</pose>
+    <!-- Front Left wheel -->
+    <link name="wheel_1">
+      <pose>0.06442 0.07385 0.04068 3.141516 -0 3.141516</pose>
       <inertial>
         <mass>0.5</mass>
         <inertia>
@@ -55,19 +56,19 @@
 
       <collision name="collision">
         <geometry>
-          <cylinder>
-            <radius>0.05</radius>
-            <length>0.04</length>
-          </cylinder>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/collision/llanta.dae</uri>
+          </mesh>
         </geometry>
       </collision>
 
       <visual name="visual">
         <geometry>
-          <cylinder>
-            <radius>0.05</radius>
-            <length>0.04</length>
-          </cylinder>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/visual/llanta.stl</uri>
+          </mesh>
         </geometry>
         <material>
           <ambient>0.2 0.2 0.2 1</ambient>
@@ -76,9 +77,9 @@
       </visual>
     </link>
 
-    <!-- Right wheel -->
-    <link name="right_wheel">
-      <pose>0 -0.2 0.05 -1.5707 0 0</pose>
+    <!-- Rear Left wheel -->
+    <link name="wheel_2">
+      <pose>-0.071224 0.07385 0.04068 3.141516 -0 3.141516</pose>
       <inertial>
         <mass>0.5</mass>
         <inertia>
@@ -93,19 +94,19 @@
 
       <collision name="collision">
         <geometry>
-          <cylinder>
-            <radius>0.05</radius>
-            <length>0.04</length>
-          </cylinder>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/collision/llanta.dae</uri>
+          </mesh>
         </geometry>
       </collision>
 
       <visual name="visual">
         <geometry>
-          <cylinder>
-            <radius>0.05</radius>
-            <length>0.04</length>
-          </cylinder>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/visual/llanta.stl</uri>
+          </mesh>
         </geometry>
         <material>
           <ambient>0.2 0.2 0.2 1</ambient>
@@ -114,46 +115,78 @@
       </visual>
     </link>
 
-    <!-- Caster wheel (front) -->
-    <link name="caster">
-      <pose>0.15 0 0.025 0 0 0</pose>
+    <!-- Rear Right wheel -->
+    <link name="wheel_3">
+      <pose>-0.071224 -0.0625 0.04068 0 0 3.141592</pose>
       <inertial>
-        <mass>0.1</mass>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>0.001</ixx>
+          <ixx>0.01</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.001</iyy>
+          <iyy>0.01</iyy>
           <iyz>0</iyz>
-          <izz>0.001</izz>
+          <izz>0.01</izz>
         </inertia>
       </inertial>
 
       <collision name="collision">
         <geometry>
-          <sphere>
-            <radius>0.025</radius>
-          </sphere>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/collision/llanta.dae</uri>
+          </mesh>
         </geometry>
-        <surface>
-          <friction>
-            <ode>
-              <mu>0</mu>
-              <mu2>0</mu2>
-            </ode>
-          </friction>
-        </surface>
       </collision>
 
       <visual name="visual">
         <geometry>
-          <sphere>
-            <radius>0.025</radius>
-          </sphere>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/visual/llanta.stl</uri>
+          </mesh>
         </geometry>
         <material>
-          <ambient>0.3 0.3 0.3 1</ambient>
-          <diffuse>0.3 0.3 0.3 1</diffuse>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Front Right wheel -->
+    <link name="wheel_4">
+      <pose>0.064423 -0.0625 0.04068 0 0 3.141592</pose>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/collision/llanta.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://axioma_v2/meshes/visual/llanta.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
         </material>
       </visual>
     </link>
@@ -228,25 +261,36 @@
     </link>
 
     <!-- Joints -->
-    <joint name="left_wheel_joint" type="revolute">
+    <joint name="wheel1_joint" type="revolute">
       <parent>base_link</parent>
-      <child>left_wheel</child>
+      <child>wheel_1</child>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 1 0</xyz>
       </axis>
     </joint>
 
-    <joint name="right_wheel_joint" type="revolute">
+    <joint name="wheel2_joint" type="revolute">
       <parent>base_link</parent>
-      <child>right_wheel</child>
+      <child>wheel_2</child>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 1 0</xyz>
       </axis>
     </joint>
 
-    <joint name="caster_joint" type="fixed">
+    <joint name="wheel3_joint" type="revolute">
       <parent>base_link</parent>
-      <child>caster</child>
+      <child>wheel_3</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint name="wheel4_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>wheel_4</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+      </axis>
     </joint>
 
     <joint name="laser_joint" type="fixed">
@@ -254,15 +298,32 @@
       <child>laser_link</child>
     </joint>
 
-    <!-- Differential drive plugin -->
-    <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+    <!-- 4WD Skid-Steer drive plugin -->
+    <plugin name="skid_steer_drive" filename="libgazebo_ros_diff_drive.so">
       <update_rate>50</update_rate>
-      <left_joint>left_wheel_joint</left_joint>
-      <right_joint>right_wheel_joint</right_joint>
+
+      <!-- Number of wheel pairs -->
+      <num_wheel_pairs>2</num_wheel_pairs>
+
+      <!-- wheels0 (front) -->
+      <left_joint>wheel1_joint</left_joint>
+      <right_joint>wheel4_joint</right_joint>
+
+      <!-- wheels1 (rear) -->
+      <left_joint>wheel2_joint</left_joint>
+      <right_joint>wheel3_joint</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>0.4</wheel_separation>
       <wheel_separation>0.4</wheel_separation>
       <wheel_diameter>0.1</wheel_diameter>
+      <wheel_diameter>0.1</wheel_diameter>
+
+      <!-- limits -->
       <max_wheel_torque>20</max_wheel_torque>
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+      <!-- output -->
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
       <publish_wheel_tf>false</publish_wheel_tf>

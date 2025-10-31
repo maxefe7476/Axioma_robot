@@ -97,7 +97,8 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='axioma'>
+    <!-- ROBOT REMOVED - Will be spawned via spawn_entity.py instead -->
+    <!--<model name='axioma'>
       <link name='base_link'>
         <inertial>
           <pose>0 0 0 0 -0 0</pose>
@@ -680,6 +681,7 @@
       </plugin>
       <pose>0 0 0.1 0 -0 0</pose>
     </model>
+    -->
     <model name='unit_box'>
       <pose>2.44537 2.46944 0.5 0 -0 0</pose>
       <link name='link'>
@@ -1427,6 +1429,7 @@
       <real_time>125 731048952</real_time>
       <wall_time>1761236206 21689503</wall_time>
       <iterations>112534</iterations>
+      <!--
       <model name='axioma'>
         <pose>0.00047 -2.1e-05 -0.00258 -2.6e-05 5.2e-05 0.000297</pose>
         <scale>1 1 1</scale>
@@ -1473,6 +1476,7 @@
           <wrench>-0.000214 -0.000406 0.01442 0 -0 0</wrench>
         </link>
       </model>
+      -->
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
