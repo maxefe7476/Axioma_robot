@@ -35,7 +35,7 @@ sudo apt install -y python3-colcon-common-extensions python3-rosdep python3-argc
 # 3. Clonar y compilar el proyecto
 mkdir -p ~/ros2/axioma_humble_ws/src
 cd ~/ros2/axioma_humble_ws/src
-git clone https://github.com/mrdavidavl/Axioma_robot.git .
+git clone https://github.com/MrDavidAlv/Axioma_robot.git .
 cd ~/ros2/axioma_humble_ws
 colcon build
 source install/setup.bash
@@ -73,11 +73,11 @@ Robot móvil, autónomo, logística, planeación, trayectorias, ROS2 Humble, Nav
 Agregar sensores para realizar odometría y cálculo de velocidad de giros del robot.
 
 <div align="center">
-  <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/axioma.jpeg" alt="Axioma Robot" width="400">
+  <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/axioma.jpeg" alt="Axioma Robot" width="400">
 </div>
 
 <div align="center">
-  <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/open_software.jpeg" alt="Open Source" width="400">
+  <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/open_software.jpeg" alt="Open Source" width="400">
 </div>
 
 ---
@@ -254,7 +254,7 @@ El sistema de alimentación está diseñado para proporcionar energía estable y
 #### [Arduino](https://www.arduino.cc/)
 
 <div align="center">
-  <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/arduino.jpeg" alt="Arduino" width="350">
+  <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/arduino.jpeg" alt="Arduino" width="350">
 </div>
 
 **Arduino Mega 2560** actúa como unidad de control de bajo nivel, encargándose de:
@@ -295,7 +295,7 @@ void setMotorSpeeds(int left_speed, int right_speed) {
 #### [Raspberry Pi](https://www.raspberrypi.com/)
 
 <div align="center">
-  <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/raspberry.jpeg" alt="Raspberry Pi" width="350">
+  <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/raspberry.jpeg" alt="Raspberry Pi" width="350">
 </div>
 
 **Raspberry Pi 4 Model B** funciona como cerebro principal del robot, ejecutando ROS2 y algoritmos de alto nivel.
@@ -325,7 +325,7 @@ El robot Axioma.io cuenta con un diseño mecánico completo desarrollado en soft
 
 <div align="center">
   <a href="https://www.autodesk.com/community/gallery/project/147581/robot-axioma-io-with-raspberry-pi-and-python">
-    <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/axioma.jpeg" alt="Modelo 3D Axioma.io" width="400">
+    <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/axioma.jpeg" alt="Modelo 3D Axioma.io" width="400">
   </a>
   <br>
   <strong><a href="https://www.autodesk.com/community/gallery/project/147581/robot-axioma-io-with-raspberry-pi-and-python">🔗 Ver Modelo 3D Interactivo en Autodesk Gallery</a></strong>
@@ -358,13 +358,13 @@ El robot Axioma.io cuenta con un diseño mecánico completo desarrollado en soft
 ### 2.1 [ROS/ROS2](https://www.ros.org/)
 
 <div align="center">
-  <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/ros.jpeg" alt="ROS2" width="400">
+  <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/ros.jpeg" alt="ROS2" width="400">
 </div>
 
 [source](https://github.com/ros)
 
 <div align="center">
-  <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/service.gif" alt="ROS2 Service" width="400">
+  <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/service.gif" alt="ROS2 Service" width="400">
 </div>
 
 ### [ROS2 Humble](https://docs.ros.org/en/humble/index.html)
@@ -818,7 +818,7 @@ Es la biblioteca cliente de ROS que proporciona la API de ***Python*** para inte
 ## 4 Modelo matemático
 
 <div align="center">
-  <img src="https://github.com/mrdavidavl/Axioma_robot/blob/main/image/diff.jpeg" alt="Differential Drive Model" width="400">
+  <img src="https://github.com/MrDavidAlv/Axioma_robot/blob/main/image/diff.jpeg" alt="Differential Drive Model" width="400">
 </div>
 
 ### Modelo Cinemático del Robot Diferencial
@@ -1065,7 +1065,7 @@ mkdir -p ~/ros2/axioma_humble_ws/src
 cd ~/ros2/axioma_humble_ws/src
 
 # Clonar el repositorio
-git clone https://github.com/mrdavidavl/Axioma_robot.git .
+git clone https://github.com/MrDavidAlv/Axioma_robot.git .
 
 # Instalar dependencias del proyecto
 cd ~/ros2/axioma_humble_ws
@@ -2632,10 +2632,10 @@ La Licencia BSD permite:
 ## 👥 Autores y Agradecimientos
 
 ### Autores
-- **Mario David Alvarez Vallejo** - *Desarrollo principal* - [@mrdavidavl](https://github.com/mrdavidavl)
+- **Mario David Alvarez Vallejo** - *Desarrollo principal* - [@MrDavidAlv](https://github.com/MrDavidAlv)
   - 📧 [ing.marioalvarezvallejo@gmail.com](mailto:ing.marioalvarezvallejo@gmail.com)
-  - 📱 Instagram: [@mrdavidavl](https://instagram.com/mrdavidavl)
-  - 🐦 X (Twitter): [@mrdavidavl](https://x.com/mrdavidavl)
+  - 📱 Instagram: [@MrDavidAlv](https://instagram.com/MrDavidAlv)
+  - 🐦 X (Twitter): [@MrDavidAlv](https://x.com/MrDavidAlv)
 - **Semillero de Robótica SIRO** - *Colaboradores y testers*
   - Universidad de Bogotá Jorge Tadeo Lozano
 
@@ -2684,13 +2684,13 @@ La Licencia BSD permite:
 | Canal | Link |
 |-------|------|
 | 📧 **Email Personal** | [ing.marioalvarezvallejo@gmail.com](mailto:ing.marioalvarezvallejo@gmail.com) |
-| 🐙 **GitHub Personal** | [@mrdavidavl](https://github.com/mrdavidavl) |
+| 🐙 **GitHub Personal** | [@MrDavidAlv](https://github.com/MrDavidAlv) |
 | 🤖 **SIRO GitHub** | [TadeoRoboticsGroup](https://github.com/TadeoRoboticsGroup) |
-| 💬 **Issues** | [Reportar un problema](https://github.com/mrdavidavl/Axioma_robot/issues) |
+| 💬 **Issues** | [Reportar un problema](https://github.com/MrDavidAlv/Axioma_robot/issues) |
 | 🎓 **Universidad** | [Universidad Jorge Tadeo Lozano](https://www.utadeo.edu.co/) |
-| 📱 **Instagram** | [@mrdavidavl](https://instagram.com/mrdavidavl) |
-| 🐦 **X (Twitter)** | [@mrdavidavl](https://x.com/mrdavidavl) |
-| 📘 **Facebook** | [@mrdavidavl](https://facebook.com/mrdavidavl) |
+| 📱 **Instagram** | [@MrDavidAlv](https://instagram.com/MrDavidAlv) |
+| 🐦 **X (Twitter)** | [@MrDavidAlv](https://x.com/MrDavidAlv) |
+| 📘 **Facebook** | [@MrDavidAlv](https://facebook.com/MrDavidAlv) |
 
 </div>
 
@@ -2714,8 +2714,8 @@ Si este proyecto te resultó útil, considera:
 
 *Transformando la educación en robótica, un commit a la vez* 🚀
 
-[![GitHub stars](https://img.shields.io/github/stars/mrdavidavl/Axioma_robot?style=social)](https://github.com/mrdavidavl/Axioma_robot)
-[![GitHub forks](https://img.shields.io/github/forks/mrdavidavl/Axioma_robot?style=social)](https://github.com/mrdavidavl/Axioma_robot/fork)
-[![Follow @mrdavidavl](https://img.shields.io/github/followers/mrdavidavl?label=Follow&style=social)](https://github.com/mrdavidavl)
+[![GitHub stars](https://img.shields.io/github/stars/MrDavidAlv/Axioma_robot?style=social)](https://github.com/MrDavidAlv/Axioma_robot)
+[![GitHub forks](https://img.shields.io/github/forks/MrDavidAlv/Axioma_robot?style=social)](https://github.com/MrDavidAlv/Axioma_robot/fork)
+[![Follow @MrDavidAlv](https://img.shields.io/github/followers/MrDavidAlv?label=Follow&style=social)](https://github.com/MrDavidAlv)
 
 </div>
