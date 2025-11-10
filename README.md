@@ -3,7 +3,8 @@
 # Axioma.io   :hugs: :muscle: :seedling: :nerd_face:
 
 
-	<img src="images/portada.png" width="300"/>
+<img src="images/portada.png" width="300"/>
+
 </div>
 
 ### Robot Móvil Autónomo con SLAM y Navegación Nav2
