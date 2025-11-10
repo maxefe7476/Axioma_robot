@@ -131,7 +131,7 @@ Agregar sensores para realizar odometría y cálculo de velocidad de giros del r
     <td><img src="images/robot4.jpg" width="400"/></td>
   </tr>
   <tr>
-    <td><img src="images/robot5.jpg" width="400"/></td>
+    <td><img src="images/robot5.png" width="400"/></td>
     <td><img src="images/robot6.jpg" width="400"/></td>
   </tr>
 </table>
