@@ -1,0 +1,461 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='person_walking'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.95 0 -0 0</pose>
+          <mass>80</mass>
+          <inertia>
+            <ixx>27.82</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>24.88</iyy>
+            <iyz>0</iyz>
+            <izz>4.57</izz>
+          </inertia>
+        </inertial>
+        <collision name='bottom'>
+          <pose>0 0 0.01 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.35 0.75 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='person'>
+          <pose>0 0 -0.02 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_walking/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.02 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_walking/meshes/walking.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>-0.985856 -1.23724 0 0 -0 0</pose>
+    </model>
+    <model name='NUS_SEDS_OMNIDIRECTIONAL_GROUND_VEHICLE'>
+      <static>1</static>
+      <link name='base_link'>
+        <visual name='Body_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>Body</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='AxelFR_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>AxelFR</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='WheelFR_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>WheelFR</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='AxelBR_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>AxelBR</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='WheelBR_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>WheelBR</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='AxelFL_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>AxelFL</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='WheelFL_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>WheelFL</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='AxelBL_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>AxelBL</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='WheelBL_visual'>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/meshes/ogv.dae</uri>
+              <submesh>
+                <name>WheelBL</name>
+                <center>0</center>
+              </submesh>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Albedo.jpg</albedo_map>
+                <roughness_map>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/OGV_Roughness.jpg</roughness_map>
+                <metal_map>model://OGV/materials/textures/OGV_Metalness.jpg</metal_map>
+              </metal>
+            </pbr>
+            <script>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/scripts/</uri>
+              <uri>https://fuel.ignitionrobotics.org/1.0/tarequesagar/models/nus_seds_omnidirectional_ground_vehicle_visuals_only/1/files/materials/textures/</uri>
+              <name>UrbanTile/OGV_Diffuse</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>0.163445 -1.49128 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>585 210000000</sim_time>
+      <real_time>589 720348519</real_time>
+      <wall_time>1762476497 356711436</wall_time>
+      <iterations>585210</iterations>
+      <model name='NUS_SEDS_OMNIDIRECTIONAL_GROUND_VEHICLE'>
+        <pose>0.163445 -1.49128 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>0.163445 -1.49128 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='person_walking'>
+        <pose>-0.985856 -1.23724 -0 -0 1e-06 0.000298</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-0.985856 -1.23724 -0 -0 1e-06 0.000298</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>1.27486 -0.003787 -0.494449 0.00382 1.34196 -0.000398</acceleration>
+          <wrench>101.989 -0.302949 -39.5559 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0.982854 -3.22834 0.958535 0 0.569796 2.06022</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
